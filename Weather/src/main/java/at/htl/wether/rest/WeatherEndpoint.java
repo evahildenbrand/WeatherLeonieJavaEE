@@ -37,20 +37,6 @@ public class WeatherEndpoint {
 
     @GET
     public Response actualWeather(){
-        /*input = new InputStreamReader(url.getInputStream());
-        br = new BufferedReader(input);
-
-        for(int i = 0; i <= lineIndex){
-            line = br.readLine();
-            weatherArray = line.split(splitLine);
-
-            System.out.println(weatherArray[town] + ": \n" +
-                    "" + weatherArray[tempIndex] + " °C \n" +
-                    "" + weatherArray[windSpeedIndex] + " km/h \n" +
-                    "" + weatherArray[rainIndex] + " l/m² \n" +
-                    "" + weatherArray[sunIndex] + " %");
-        }*/
-
         JsonArrayBuilder array = Json.createArrayBuilder();
         JsonObjectBuilder object = Json.createObjectBuilder();
 
@@ -62,14 +48,9 @@ public class WeatherEndpoint {
 
             br.readLine();
             String line;
-            while((line = br.readLine()) != null){
+            for(int i = 0; i <= lineIndex-1; i++){
+                line = br.readLine();
                 weatherArray = line.split(splitLine);
-
-                System.out.println(weatherArray[town] + ": \n" +
-                        "" + weatherArray[tempIndex] + " °C \n" +
-                        "" + weatherArray[windSpeedIndex] + " km/h \n" +
-                        "" + weatherArray[rainIndex] + " l/m² \n" +
-                        "" + weatherArray[sunIndex] + " %");
 
                 object.add("Town", weatherArray[town]);
                 object.add("Temperatur", weatherArray[tempIndex]);
@@ -78,7 +59,26 @@ public class WeatherEndpoint {
                 object.add("Sonnenschein", weatherArray[sunIndex]);
 
                 array.add(object);
+
+                System.out.println(object);
             }
+//            while((line = br.readLine()) != null){
+//                weatherArray = line.split(splitLine);
+//
+//                System.out.println(weatherArray[town] + ": \n" +
+//                        "" + weatherArray[tempIndex] + " °C \n" +
+//                        "" + weatherArray[windSpeedIndex] + " km/h \n" +
+//                        "" + weatherArray[rainIndex] + " l/m² \n" +
+//                        "" + weatherArray[sunIndex] + " %");
+//
+//                object.add("Town", weatherArray[town]);
+//                object.add("Temperatur", weatherArray[tempIndex]);
+//                object.add("Windgeschwindigkeit", weatherArray[windSpeedIndex]);
+//                object.add("Regenmenge", weatherArray[rainIndex]);
+//                object.add("Sonnenschein", weatherArray[sunIndex]);
+//
+//                array.add(object);
+//            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException ex){
