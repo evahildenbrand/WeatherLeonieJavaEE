@@ -1,4 +1,4 @@
-package at.htl.wether.rest;
+package at.htl.weather.rest;
 
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;

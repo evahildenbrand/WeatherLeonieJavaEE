@@ -1,4 +1,4 @@
-package at.htl.wether.rest;
+package at.htl.weather.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
