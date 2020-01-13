@@ -53,10 +53,10 @@ public class WeatherEndpoint {
                 weatherArray = line.split(splitLine);
 
                 object.add("Town", weatherArray[town]);
-                object.add("Temperatur", weatherArray[tempIndex]);
-                object.add("Windgeschwindigkeit", weatherArray[windSpeedIndex]);
-                object.add("Regenmenge", weatherArray[rainIndex]);
-                object.add("Sonnenschein", weatherArray[sunIndex]);
+                object.add("Temperatur", weatherArray[tempIndex] + " °C");
+                object.add("Windgeschwindigkeit", weatherArray[windSpeedIndex] + " km/h");
+                object.add("Regenmenge", weatherArray[rainIndex] + " l/m²");
+                object.add("Sonnenschein", weatherArray[sunIndex] + " %");
 
                 array.add(object);
 
